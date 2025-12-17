@@ -1,14 +1,18 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+package projetointegrador.repository;
 
-package repository;
+import projetointegrador.model.Professor;
+import java.util.ArrayList;
+import java.util.List;
 
-/**
- *
- * @author rafin
- */
 public class ProfessorRepository {
 
+    private List<Professor> professores = new ArrayList<>();
+
+    public void salvar(Professor professor) {
+        professores.add(professor);
+    }
+
+    public List<Professor> listar() {
+        return professores;
+    }
 }

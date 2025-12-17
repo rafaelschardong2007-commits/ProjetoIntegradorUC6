@@ -1,14 +1,23 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 
 package com.projetointegrador.projetointegrador;
 
-/**
- *
- * @author rafin
- */
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
 public class FinanceiroServiceTest {
 
+    @Test
+    public void deveCalcularTotalCorretamente() {
+        financeiroService service = new financeiroService();
+        double resultado = service.calcularTotal(100.0, 2);
+        assertEquals(200.0, resultado);
+    }
+
+    @Test
+    public void deveLancarExcecaoParaValoresInvalidos() {
+        financeiroService service = new financeiroService();
+        assertThrows(IllegalArgumentException.class, () -> {
+            service.calcularTotal(-10, 2);
+        });
+    }
 }

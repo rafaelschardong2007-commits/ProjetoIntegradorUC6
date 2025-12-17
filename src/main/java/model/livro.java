@@ -1,14 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+package com.projetointegrador.projetointegrador.model;
 
-package model;
 
-/**
- *
- * @author rafin
- */
-public class livro {
+public class Livro {
+    private String titulo;
 
+    public Livro(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
 }

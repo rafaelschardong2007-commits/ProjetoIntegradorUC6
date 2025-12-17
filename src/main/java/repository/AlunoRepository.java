@@ -1,14 +1,18 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+package com.projetointegrador.projetointegrador.repository;
 
-package repository;
+import com.projetointegrador.projetointegrador.model.Aluno;
+import java.util.ArrayList;
+import java.util.List;
 
-/**
- *
- * @author rafin
- */
 public class AlunoRepository {
 
+    private List<Aluno> alunos = new ArrayList<>();
+
+    public void salvar(Aluno aluno) {
+        alunos.add(aluno);
+    }
+
+    public List<Aluno> listar() {
+        return alunos;
+    }
 }
