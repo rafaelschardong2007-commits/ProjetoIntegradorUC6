@@ -8,4 +8,11 @@ public class UsuarioService {
         return usuario.getLogin().equals("admin")
             && usuario.getSenha().equals("123");
     }
+   
+
+    public void cadastrar(Usuario usuario) {
+        System.out.println("Usuário cadastrado: " + usuario.getLogin());
+    }
+
+
 }

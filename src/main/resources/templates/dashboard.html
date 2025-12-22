@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dashboard — Curso de Inglês</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="container d-flex justify-content-between align-items-center">
+      <h3>Curso de Inglês</h3>
+      <nav>
+        <ul class="nav">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="lessons.html">Lições</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="py-5 container">
+    <h2 class="mb-4">Seu Painel</h2>
+
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="card p-3">
+          <h5>Progresso geral</h5>
+          <div class="progress my-3" style="height:18px;">
+            <div id="progress-bar" class="progress-bar" role="progressbar" style="width:0%">0%</div>
+          </div>
+          <p id="dashboard-status" class="small text-muted">Nenhuma lição concluída ainda.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card p-3">
+          <h5>Atividades recentes</h5>
+          <ul id="recent-activities" class="list-unstyled small mb-0">
+            <li>Nenhuma atividade recente.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Curso de Inglês</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+  <script>
+    
+    document.addEventListener('DOMContentLoaded', ()=>{
+      if(window.cursoIngles){
+        window.cursoIngles.getProgress && window.cursoIngles.getProgress();
+        window.cursoIngles.renderLessonCards && window.cursoIngles.renderLessonCards(); 
+       
+        const p = window.cursoIngles.getProgress();
+        const rec = document.getElementById('recent-activities');
+        if(rec){
+          rec.innerHTML = '';
+          const doneIds = Object.keys(p).filter(k => p[k]);
+          if(doneIds.length === 0) rec.innerHTML = '<li>Nenhuma atividade recente.</li>';
+          else doneIds.slice(-5).forEach(id => {
+            const li = document.createElement('li');
+            li.textContent = `Lição ${id} concluída`;
+            rec.appendChild(li);
+          });
+        }
+      }
+    });
+  </script>
+</body>
+</html>

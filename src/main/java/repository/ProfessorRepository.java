@@ -1,6 +1,6 @@
-package projetointegrador.repository;
+package com.projetointegrador.projetointegrador.repository;
 
-import projetointegrador.model.Professor;
+import com.projetointegrador.projetointegrador.model.Professor;
 import java.util.ArrayList;
 import java.util.List;
 
